@@ -17,6 +17,7 @@ SSH（Secure Shell）是一种加密的远程登录协议，用于在不安全�
 ### 创建 SSH 密钥
 首先打开终端（Terminal / Git Bash）。   
 假设你有账号`accountA`，之后的命令中的名称部分替换成你自己的账户名称。   
+`name@gmail.com`的部分替换为你自己的邮箱。
 使用以下命令生成密钥：
 
     ssh-keygen -t rsa -b 4096 -C "name@gmail.com" -f ~/.ssh/id_rsa_accountA
@@ -26,15 +27,20 @@ SSH（Secure Shell）是一种加密的远程登录协议，用于在不安全�
 > 如果你只使用一个默认的 SSH 密钥，也可以不指定名称。那么生成的文件名为`id_rsa`。  
 > 但我建议自己指定名称，为以后管理多个 SSH 密钥做准备。
 
+之后需要你设置密码，建议不设置密码。   
+
 密钥将默认保存在你的用户目录下的 .ssh 文件夹中：
-- Windows: C:\Users\YourName\.ssh\
-- macOS / Linux: ~/.ssh/
+- Windows: C:\Users\YourName\\.ssh\
+- macOS 或 Linux: ~/.ssh/
 
 密钥文件有两个，分别是 `id_rsa_accountA` 私钥和 `id_rsa_accountA.pub` 公钥两个文件。\
 .pub 为公钥，将在之后配置到远端，而私钥保存在本地。
 
 ### 创建 config 来配置多个 SSH 信息
 假设你创建了多个 SSH ，那么需要创建一个 config 来告知如何使用不同的 SSH。   
+> [!TIP]
+> config 文件也放在 .ssh\ 文件夹下。
+
 你可以通过以下方法创建和编辑config文件：   
 - 方法1：创建`config.txt`并输入配置内容。然后去掉`.txt`文件类型。
 - 方法2：在 Git Bash 中使用 `cd ~/.ssh/` 命令行移动到.ssh文件夹，然后使用 `vim config` 命令行创建 config 后编辑。
@@ -128,6 +134,7 @@ Title 可以写设备名称或任意。Key type 默认 Authentication Key。黏�
 点击菜单 Tools > Options 打开选项界面。   
 在 SSH Client Configuration 项目下，`SSH Key`一栏应当显示你添加的多个 SSH 私钥路径，通常以分号或列表方式分隔。   
 `SSH Client`一栏选择 `OpenSSH`。   
+![](Images/Git_SSH_GitHub_S_2.png)
 
 ### 关于 SSH Agent
 默认 SSH Agent 是自动启动的，有时候如果 SSH 连接不上，可以点击 Tools > Launch SSH Agent 来尝试重新启动一次 SSH 代理。
