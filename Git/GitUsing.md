@@ -36,7 +36,7 @@ Git 本身只提供了版本管理的功能。我们还需要在远端仓库托�
 ![](Images/Git_4.png)
 
 安装完成后，你可以直接通过 Git Bash 使用命令行来拉取项目。\
-![](Images/GitBash.png)
+![](Images/Git_GitBash.png)
 
 ## 使用 Sourcetree
 Sourcetree 的界面相对复杂一些，但提供来更大的可操作性。\
